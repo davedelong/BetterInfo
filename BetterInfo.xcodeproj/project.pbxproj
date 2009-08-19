@@ -17,6 +17,10 @@
 		55569CC0103B995200A27A64 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55569CBD103B995200A27A64 /* PTKeyCombo.m */; };
 		55569CC6103B9B9500A27A64 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55569CC5103B9B9500A27A64 /* Carbon.framework */; };
 		55569D10103BA0E100A27A64 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55569D0F103BA0E100A27A64 /* ApplicationServices.framework */; };
+		55598696103C7CFE003939FA /* InfoTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55598695103C7CFE003939FA /* InfoTabViewItem.m */; };
+		55598699103C7DD9003939FA /* InfoTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55598698103C7DD9003939FA /* InfoTabView.xib */; };
+		555986B8103C8699003939FA /* NSFileManager+BetterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 555986B7103C8699003939FA /* NSFileManager+BetterInfo.m */; };
+		555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 555986D6103C93AE003939FA /* NSString+FSRef.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -45,6 +49,14 @@
 		55569CBD103B995200A27A64 /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyCombo.m; sourceTree = "<group>"; };
 		55569CC5103B9B9500A27A64 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		55569D0F103BA0E100A27A64 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		55598694103C7CFE003939FA /* InfoTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTabViewItem.h; sourceTree = "<group>"; };
+		55598695103C7CFE003939FA /* InfoTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTabViewItem.m; sourceTree = "<group>"; };
+		55598698103C7DD9003939FA /* InfoTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTabView.xib; sourceTree = "<group>"; };
+		555986B6103C8699003939FA /* NSFileManager+BetterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+BetterInfo.h"; sourceTree = "<group>"; };
+		555986B7103C8699003939FA /* NSFileManager+BetterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+BetterInfo.m"; sourceTree = "<group>"; };
+		555986D5103C93AE003939FA /* NSString+FSRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FSRef.h"; sourceTree = "<group>"; };
+		555986D6103C93AE003939FA /* NSString+FSRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FSRef.m"; sourceTree = "<group>"; };
+		555986DD103C94C7003939FA /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		55B0D88E103BB359003BAD18 /* Finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finder.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BetterInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BetterInfo-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BetterInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +84,14 @@
 				256AC3D90F4B6AC300CF3369 /* BetterInfoAppDelegate.m */,
 				55569C23103B8C0C00A27A64 /* BetterInfoDocument.h */,
 				55569C24103B8C0C00A27A64 /* BetterInfoDocument.m */,
+				55598694103C7CFE003939FA /* InfoTabViewItem.h */,
+				55598695103C7CFE003939FA /* InfoTabViewItem.m */,
 				55B0D88E103BB359003BAD18 /* Finder.h */,
+				555986D5103C93AE003939FA /* NSString+FSRef.h */,
+				555986D6103C93AE003939FA /* NSString+FSRef.m */,
+				555986B6103C8699003939FA /* NSFileManager+BetterInfo.h */,
+				555986B7103C8699003939FA /* NSFileManager+BetterInfo.m */,
+				555986DD103C94C7003939FA /* Common.h */,
 				55569CC2103B995400A27A64 /* PTHotKey */,
 			);
 			name = Classes;
@@ -134,6 +153,7 @@
 				8D1107310486CEB800E47090 /* BetterInfo-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				55569C28103B8C8500A27A64 /* BetterInfoDocument.xib */,
+				55598698103C7DD9003939FA /* InfoTabView.xib */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -207,6 +227,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				55569C29103B8C8500A27A64 /* BetterInfoDocument.xib in Resources */,
+				55598699103C7DD9003939FA /* InfoTabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +244,9 @@
 				55569CBE103B995200A27A64 /* PTHotKeyCenter.m in Sources */,
 				55569CBF103B995200A27A64 /* PTHotKey.m in Sources */,
 				55569CC0103B995200A27A64 /* PTKeyCombo.m in Sources */,
+				55598696103C7CFE003939FA /* InfoTabViewItem.m in Sources */,
+				555986B8103C8699003939FA /* NSFileManager+BetterInfo.m in Sources */,
+				555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

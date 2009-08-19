@@ -34,6 +34,8 @@
 }
 
 - (void) hotKeyPressed:(PTKeyCombo *)hotKey {
+	[NSApp activateIgnoringOtherApps:YES];
+	
 	FinderApplication * finder = [SBApplication applicationWithBundleIdentifier:@"com.apple.finder"];
 	SBElementArray * selection = [[finder selection] get];
 	

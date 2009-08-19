@@ -7,18 +7,27 @@
 //
 
 #import "BetterInfoDocument.h"
+#import "InfoTabViewItem.h"
+#import "BetterInfoWindowController.h"
 
 
 @implementation BetterInfoDocument
 @synthesize itemPath;
+@synthesize tabView;
 @synthesize fileNameField, filePathField, fileImageView;
 
 - (id) initWithURL:(NSURL *)url {
 	if (self = [super init]) {
 		[self setItemPath:[url path]];
-		NSLog(@"Loaded: %@", [self itemPath]);
+		infoTab = [[InfoTabViewItem alloc] initWithPath:[self itemPath]];
 	}
 	return self;
+}
+
+- (void) dealloc {
+	[infoTab release], infoTab = nil;
+	[itemPath release], itemPath = nil;
+	[super dealloc];
 }
 
 - (NSString *)windowNibName {
@@ -31,10 +40,13 @@
 	NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[self itemPath] error:nil];
 	NSLog(@"Attributes: %@", attributes);
 	
-	NSImage * image = [[NSWorkspace sharedWorkspace] iconForFile:[self itemPath]];
 	[fileNameField setStringValue:[[NSFileManager defaultManager] displayNameAtPath:[self itemPath]]];
 	[filePathField setStringValue:[self itemPath]];
+	
+	NSImage * image = [[NSWorkspace sharedWorkspace] iconForFile:[self itemPath]];
 	[fileImageView setImage:image];
+	
+	[tabView addTabViewItem:infoTab];
 }
 
 @end
