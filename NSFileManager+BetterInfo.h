@@ -13,5 +13,6 @@
 
 - (NSString *)humanReadableTypeStringForItemAtPath:(NSString *)path;
 - (BIItemSize)sizeOfItemAtPath:(NSString *)path;
+- (void) setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path;
 
 @end

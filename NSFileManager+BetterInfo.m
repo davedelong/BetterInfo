@@ -89,4 +89,12 @@
 	return [self _sizeOfItemForFSRef:&itemRef];
 }
 
+- (void) setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path {
+	NSError * error = nil;
+	[self setAttributes:attributes ofItemAtPath:path error:&error];
+	if (error) {
+		NSLog(@"Error changing attributes: %@", error);
+	}
+}
+
 @end

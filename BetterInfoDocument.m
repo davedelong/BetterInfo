@@ -8,7 +8,6 @@
 
 #import "BetterInfoDocument.h"
 #import "InfoTabViewItem.h"
-#import "BetterInfoWindowController.h"
 
 
 @implementation BetterInfoDocument

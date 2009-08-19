@@ -38,4 +38,7 @@
 
 - (id) initWithPath:(NSString *)itemPath;
 
+- (IBAction) changedCreationDate:(id)sender;
+- (IBAction) changedModificationDate:(id)sender;
+
 @end

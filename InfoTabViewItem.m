@@ -57,4 +57,18 @@
 	return self;
 }
 
+- (IBAction) changedCreationDate:(id)sender {
+	NSMutableDictionary * attributes = [[[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil] mutableCopy];
+	[attributes setObject:[createdDatePicker dateValue] forKey:NSFileCreationDate];
+	[[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:[self path]];
+	[attributes release];
+}
+
+- (IBAction) changedModificationDate:(id)sender {
+	NSMutableDictionary * attributes = [[[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil] mutableCopy];
+	[attributes setObject:[modifiedDatePicker dateValue] forKey:NSFileModificationDate];
+	[[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:[self path]];
+	[attributes release];
+}
+
 @end
