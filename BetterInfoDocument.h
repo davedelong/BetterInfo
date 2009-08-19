@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class InfoTabViewItem;
+@class PermissionsTabViewItem;
 
 @interface BetterInfoDocument : NSDocument {
 	NSString * itemPath;
@@ -20,6 +21,7 @@
 	NSImageView * fileImageView;
 	
 	InfoTabViewItem * infoTab;
+	PermissionsTabViewItem * permsTab;
 }
 
 @property (nonatomic, copy) NSString * itemPath;

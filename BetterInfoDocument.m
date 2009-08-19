@@ -8,6 +8,7 @@
 
 #import "BetterInfoDocument.h"
 #import "InfoTabViewItem.h"
+#import "PermissionsTabViewItem.h"
 
 
 @implementation BetterInfoDocument
@@ -19,12 +20,14 @@
 	if (self = [super init]) {
 		[self setItemPath:[url path]];
 		infoTab = [[InfoTabViewItem alloc] initWithPath:[self itemPath]];
+		permsTab =[[PermissionsTabViewItem alloc] initWithPath:[self itemPath]];
 	}
 	return self;
 }
 
 - (void) dealloc {
 	[infoTab release], infoTab = nil;
+	[permsTab release], permsTab = nil;
 	[itemPath release], itemPath = nil;
 	[super dealloc];
 }
@@ -46,6 +49,7 @@
 	[fileImageView setImage:image];
 	
 	[tabView addTabViewItem:infoTab];
+	[tabView addTabViewItem:permsTab];
 }
 
 @end

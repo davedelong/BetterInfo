@@ -21,6 +21,8 @@
 		55598699103C7DD9003939FA /* InfoTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55598698103C7DD9003939FA /* InfoTabView.xib */; };
 		555986B8103C8699003939FA /* NSFileManager+BetterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 555986B7103C8699003939FA /* NSFileManager+BetterInfo.m */; };
 		555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 555986D6103C93AE003939FA /* NSString+FSRef.m */; };
+		555987BC103CADA4003939FA /* PermissionsTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 555987BB103CADA4003939FA /* PermissionsTabViewItem.m */; };
+		555987BF103CAE95003939FA /* PermissionsTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555987BE103CAE95003939FA /* PermissionsTabView.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -57,6 +59,9 @@
 		555986D5103C93AE003939FA /* NSString+FSRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FSRef.h"; sourceTree = "<group>"; };
 		555986D6103C93AE003939FA /* NSString+FSRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FSRef.m"; sourceTree = "<group>"; };
 		555986DD103C94C7003939FA /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		555987BA103CADA4003939FA /* PermissionsTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionsTabViewItem.h; sourceTree = "<group>"; };
+		555987BB103CADA4003939FA /* PermissionsTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionsTabViewItem.m; sourceTree = "<group>"; };
+		555987BE103CAE95003939FA /* PermissionsTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsTabView.xib; sourceTree = "<group>"; };
 		55B0D88E103BB359003BAD18 /* Finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finder.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BetterInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BetterInfo-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BetterInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +91,8 @@
 				55569C24103B8C0C00A27A64 /* BetterInfoDocument.m */,
 				55598694103C7CFE003939FA /* InfoTabViewItem.h */,
 				55598695103C7CFE003939FA /* InfoTabViewItem.m */,
+				555987BA103CADA4003939FA /* PermissionsTabViewItem.h */,
+				555987BB103CADA4003939FA /* PermissionsTabViewItem.m */,
 				55B0D88E103BB359003BAD18 /* Finder.h */,
 				555986D5103C93AE003939FA /* NSString+FSRef.h */,
 				555986D6103C93AE003939FA /* NSString+FSRef.m */,
@@ -154,6 +161,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				55569C28103B8C8500A27A64 /* BetterInfoDocument.xib */,
 				55598698103C7DD9003939FA /* InfoTabView.xib */,
+				555987BE103CAE95003939FA /* PermissionsTabView.xib */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -228,6 +236,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				55569C29103B8C8500A27A64 /* BetterInfoDocument.xib in Resources */,
 				55598699103C7DD9003939FA /* InfoTabView.xib in Resources */,
+				555987BF103CAE95003939FA /* PermissionsTabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +256,7 @@
 				55598696103C7CFE003939FA /* InfoTabViewItem.m in Sources */,
 				555986B8103C8699003939FA /* NSFileManager+BetterInfo.m in Sources */,
 				555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */,
+				555987BC103CADA4003939FA /* PermissionsTabViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
