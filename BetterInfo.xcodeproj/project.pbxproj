@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* BetterInfoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* BetterInfoAppDelegate.m */; };
+		5513A185103BAD2400E55C52 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5513A184103BAD2400E55C52 /* ScriptingBridge.framework */; };
+		55569C25103B8C0C00A27A64 /* BetterInfoDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 55569C24103B8C0C00A27A64 /* BetterInfoDocument.m */; };
+		55569C29103B8C8500A27A64 /* BetterInfoDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55569C28103B8C8500A27A64 /* BetterInfoDocument.xib */; };
+		55569CBE103B995200A27A64 /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55569CB9103B995200A27A64 /* PTHotKeyCenter.m */; };
+		55569CBF103B995200A27A64 /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 55569CBB103B995200A27A64 /* PTHotKey.m */; };
+		55569CC0103B995200A27A64 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 55569CBD103B995200A27A64 /* PTKeyCombo.m */; };
+		55569CC6103B9B9500A27A64 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55569CC5103B9B9500A27A64 /* Carbon.framework */; };
+		55569D10103BA0E100A27A64 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55569D0F103BA0E100A27A64 /* ApplicationServices.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -25,6 +33,19 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		5513A184103BAD2400E55C52 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		55569C23103B8C0C00A27A64 /* BetterInfoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetterInfoDocument.h; sourceTree = "<group>"; };
+		55569C24103B8C0C00A27A64 /* BetterInfoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetterInfoDocument.m; sourceTree = "<group>"; };
+		55569C28103B8C8500A27A64 /* BetterInfoDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetterInfoDocument.xib; sourceTree = "<group>"; };
+		55569CB8103B995200A27A64 /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTHotKeyCenter.h; sourceTree = "<group>"; };
+		55569CB9103B995200A27A64 /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTHotKeyCenter.m; sourceTree = "<group>"; };
+		55569CBA103B995200A27A64 /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTHotKey.h; sourceTree = "<group>"; };
+		55569CBB103B995200A27A64 /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTHotKey.m; sourceTree = "<group>"; };
+		55569CBC103B995200A27A64 /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyCombo.h; sourceTree = "<group>"; };
+		55569CBD103B995200A27A64 /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyCombo.m; sourceTree = "<group>"; };
+		55569CC5103B9B9500A27A64 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		55569D0F103BA0E100A27A64 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		55B0D88E103BB359003BAD18 /* Finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finder.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BetterInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BetterInfo-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BetterInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +56,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				55569CC6103B9B9500A27A64 /* Carbon.framework in Frameworks */,
+				55569D10103BA0E100A27A64 /* ApplicationServices.framework in Frameworks */,
+				5513A185103BAD2400E55C52 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +70,10 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* BetterInfoAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* BetterInfoAppDelegate.m */,
+				55569C23103B8C0C00A27A64 /* BetterInfoDocument.h */,
+				55569C24103B8C0C00A27A64 /* BetterInfoDocument.m */,
+				55B0D88E103BB359003BAD18 /* Finder.h */,
+				55569CC2103B995400A27A64 /* PTHotKey */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -84,6 +112,9 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				55569CC5103B9B9500A27A64 /* Carbon.framework */,
+				55569D0F103BA0E100A27A64 /* ApplicationServices.framework */,
+				5513A184103BAD2400E55C52 /* ScriptingBridge.framework */,
 			);
 			name = BetterInfo;
 			sourceTree = "<group>";
@@ -102,6 +133,7 @@
 			children = (
 				8D1107310486CEB800E47090 /* BetterInfo-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				55569C28103B8C8500A27A64 /* BetterInfoDocument.xib */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -114,6 +146,19 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55569CC2103B995400A27A64 /* PTHotKey */ = {
+			isa = PBXGroup;
+			children = (
+				55569CB8103B995200A27A64 /* PTHotKeyCenter.h */,
+				55569CB9103B995200A27A64 /* PTHotKeyCenter.m */,
+				55569CBA103B995200A27A64 /* PTHotKey.h */,
+				55569CBB103B995200A27A64 /* PTHotKey.m */,
+				55569CBC103B995200A27A64 /* PTKeyCombo.h */,
+				55569CBD103B995200A27A64 /* PTKeyCombo.m */,
+			);
+			name = PTHotKey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +206,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				55569C29103B8C8500A27A64 /* BetterInfoDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +219,10 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* BetterInfoAppDelegate.m in Sources */,
+				55569C25103B8C0C00A27A64 /* BetterInfoDocument.m in Sources */,
+				55569CBE103B995200A27A64 /* PTHotKeyCenter.m in Sources */,
+				55569CBF103B995200A27A64 /* PTHotKey.m in Sources */,
+				55569CC0103B995200A27A64 /* PTKeyCombo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

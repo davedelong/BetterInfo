@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BetterInfoAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
-}
+@class PTHotKey;
 
-@property (assign) IBOutlet NSWindow *window;
+@interface BetterInfoAppDelegate : NSObject <NSApplicationDelegate> {
+	PTHotKey * globalHotkey;
+}
 
 @end
