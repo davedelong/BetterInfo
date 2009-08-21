@@ -100,7 +100,7 @@
 	NSString * dataLogical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.dataLogicalSize]];
 	NSString * resourceLogical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.resourceLogicalSize]];
 	
-	NSString * fileCount = [NSString stringWithFormat:@" for %llu item%@", itemSize.fileCount, (itemSize.fileCount == 1 ? @"" : @"s")];
+	NSString * fileCount = (itemSize.fileCount > 0 ? [NSString stringWithFormat:@" for %llu item%@", itemSize.fileCount, (itemSize.fileCount == 1 ? @"" : @"s")] : @"");
 	[totalSizeField setStringValue:[NSString stringWithFormat:format, physical, logical, fileCount]];
 	[dataSizeField setStringValue:[NSString stringWithFormat:format, dataPhysical, dataLogical, @""]];
 	[resourceSizeField setStringValue:[NSString stringWithFormat:format, resourcePhysical, resourceLogical, @""]];

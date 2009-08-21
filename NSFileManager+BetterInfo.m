@@ -79,16 +79,18 @@
 	FSRef itemRef = [path fsref];
 	
 	FSCatalogInfo itemInfo;
+	BIItemSize size;
+	BIItemSizeClearSize(size);
 	OSErr err = FSGetCatalogInfo(&itemRef,  kFSCatInfoDataSizes | kFSCatInfoNodeFlags | kFSCatInfoRsrcSizes, &itemInfo, NULL, NULL, NULL);
 	if (!err && (itemInfo.nodeFlags & kFSNodeIsDirectoryMask) == NO) {
 		//just a file
-		BIItemSize size;
-		BIItemSizeClearSize(size);
 		BIItemSizeAddCatalogInfo(size, itemInfo);
-		return size;
+	} else {
+		size = [self _sizeOfItemForFSRef:&itemRef];
 	}
-	
-	return [self _sizeOfItemForFSRef:&itemRef];
+	//we don't count the item itself; only sub-items
+	size.fileCount--;
+	return size;
 }
 
 - (void) setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path {
