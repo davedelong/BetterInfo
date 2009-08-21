@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "Common.h"
 
 @interface InfoTabViewItem : NSTabViewItem {
 	NSString * path;
@@ -22,6 +22,14 @@
 	
 	NSDatePicker * createdDatePicker;
 	NSDatePicker * modifiedDatePicker;
+	
+	NSProgressIndicator * sizeProgressBar;
+	
+	NSButton * extensionHiddenButton;
+	NSButton * invisibleButton;
+	NSButton * lockedButton;
+	
+	BIItemSize itemSize;
 }
 
 @property (nonatomic, assign) NSString * path;
@@ -36,9 +44,17 @@
 @property (nonatomic, assign) IBOutlet NSDatePicker * createdDatePicker;
 @property (nonatomic, assign) IBOutlet NSDatePicker * modifiedDatePicker;
 
+@property (nonatomic, assign) IBOutlet NSProgressIndicator * sizeProgressBar;
+
+@property (nonatomic, assign) IBOutlet NSButton * extensionHiddenButton;
+@property (nonatomic, assign) IBOutlet NSButton * invisibleButton;
+@property (nonatomic, assign) IBOutlet NSButton * lockedButton;
+
 - (id) initWithPath:(NSString *)itemPath;
 
 - (IBAction) changedCreationDate:(id)sender;
 - (IBAction) changedModificationDate:(id)sender;
+
+- (IBAction) changedExtensionHiddenFlag:(id)sender;
 
 @end

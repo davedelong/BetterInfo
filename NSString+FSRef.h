@@ -9,8 +9,16 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NSString (FSRef)
+@interface NSString (BetterInfo)
 
 - (FSRef) fsref;
+- (NSString *) trimmedString;
 
 @end
+
+@interface NSMutableString (BetterInfo)
+
+- (void) trim;
+
+@end
+

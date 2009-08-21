@@ -90,7 +90,7 @@
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="543126380">
 								<int key="NSCellFlags">130560</int>
-								<int key="NSCellFlags2">33554432</int>
+								<int key="NSCellFlags2">0</int>
 								<object class="NSCustomResource" key="NSContents">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSComputer</string>

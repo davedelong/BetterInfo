@@ -12,6 +12,12 @@
 
 @interface BetterInfoAppDelegate : NSObject <NSApplicationDelegate> {
 	PTHotKey * globalHotkey;
+	
+	NSArray * users;
+	NSArray * groups;
 }
+
+@property (nonatomic, readonly) NSArray * users;
+@property (nonatomic, readonly) NSArray * groups;
 
 @end

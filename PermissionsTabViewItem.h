@@ -22,6 +22,9 @@
 	NSButton * worldReadButton;
 	NSButton * worldWriteButton;
 	NSButton * worldExecuteButton;
+	
+	NSPopUpButton * usersPopup;
+	NSPopUpButton * groupsPopup;
 }
 
 @property (nonatomic, assign) NSString * path;
@@ -37,8 +40,13 @@
 @property (nonatomic, assign) IBOutlet NSButton * worldWriteButton;
 @property (nonatomic, assign) IBOutlet NSButton * worldExecuteButton;
 
+@property (nonatomic, assign) IBOutlet NSPopUpButton * usersPopup;
+@property (nonatomic, assign) IBOutlet NSPopUpButton * groupsPopup;
+
 - (id) initWithPath:(NSString *)itemPath;
 
 - (IBAction) permissionsChanged:(id)sender;
+- (IBAction) ownerChanged:(id)sender;
+- (IBAction) groupChanged:(id)sender;
 
 @end

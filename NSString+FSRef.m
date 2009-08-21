@@ -9,7 +9,7 @@
 #import "NSString+FSRef.h"
 
 
-@implementation NSString (FSRef)
+@implementation NSString (BetterInfo)
 
 - (FSRef) fsref {
 	FSRef output;
@@ -30,4 +30,18 @@
 	return output;
 }
 
+- (NSString *) trimmedString {
+	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
 @end
+
+@implementation NSMutableString (BetterInfo)
+
+- (void) trim {
+	CFMutableStringRef this = (CFMutableStringRef)self;
+	CFStringTrimWhitespace(this);
+}
+
+@end
+

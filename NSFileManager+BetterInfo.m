@@ -39,6 +39,8 @@
                 if (fetchedInfos[thisIndex].nodeFlags & kFSNodeIsDirectoryMask) {
 					BIItemSize subSize = [self _sizeOfItemForFSRef:&fetchedRefs[thisIndex]];
 					BIItemSizeAddSizes(size, subSize);
+					//need to count the folder itself
+					size.fileCount++;
                 } else {
                     // add the size for this item
 					BIItemSizeAddCatalogInfo(size, fetchedInfos[thisIndex]);

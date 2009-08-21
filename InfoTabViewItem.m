@@ -9,7 +9,7 @@
 #import "InfoTabViewItem.h"
 #import "NSFileManager+BetterInfo.h"
 #import "NSString+FSRef.h"
-#import "Common.h"
+#import "BIByteFormatter.h"
 
 @interface InfoTabViewItem ()
 
@@ -17,6 +17,7 @@
 - (void) reloadSizes;
 - (void) reloadVersion;
 - (void) reloadType;
+- (void) reloadExtensionAndLocked;
 
 @end
 
@@ -26,6 +27,8 @@
 @synthesize path, infoView;
 @synthesize kindField, totalSizeField, dataSizeField, resourceSizeField, versionField;
 @synthesize createdDatePicker, modifiedDatePicker;
+@synthesize sizeProgressBar;
+@synthesize extensionHiddenButton, invisibleButton, lockedButton;
 
 - (id) initWithPath:(NSString *)itemPath {
 	if (self = [super initWithIdentifier:@"info"]) {
@@ -43,25 +46,66 @@
 		[self reloadSizes];
 		[self reloadVersion];
 		[self reloadDates];
+		[self reloadExtensionAndLocked];
 	}
 	return self;
+}
+
+- (void) reloadExtensionAndLocked {
+	NSString * name = [[self path] lastPathComponent];
+	NSString * extension = [name pathExtension];
+	[extensionHiddenButton setEnabled:(![extension isEqualToString:@""])];
+	NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil];
+	[extensionHiddenButton setState:[attributes fileExtensionHidden]];
 }
 
 - (void) reloadDates {
 	NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil];
 	if (attributes) {
-		NSDate * createDate = [attributes objectForKey:NSFileCreationDate];
-		NSDate * modDate = [attributes objectForKey:NSFileModificationDate];
-		[createdDatePicker setDateValue:createDate];
-		[modifiedDatePicker setDateValue:modDate];
+		[createdDatePicker setDateValue:[attributes fileCreationDate]];
+		[modifiedDatePicker setDateValue:[attributes fileModificationDate]];
 	}
 }
 
+- (void) computeSizes {
+	NSAutoreleasePool * sizePool = [[NSAutoreleasePool alloc] init];
+	itemSize = [[NSFileManager defaultManager] sizeOfItemAtPath:[self path]];
+	[self performSelectorOnMainThread:@selector(updateSizes) withObject:nil waitUntilDone:NO];
+	[sizePool release];
+}
+
 - (void) reloadSizes {	
-	BIItemSize sizes = [[NSFileManager defaultManager] sizeOfItemAtPath:[self path]];
-	[totalSizeField setStringValue:[NSString stringWithFormat:@"%llu on disk (%llu bytes)", sizes.physicalSize, sizes.logicalSize]];
-	[dataSizeField setStringValue:[NSString stringWithFormat:@"%llu on disk (%llu bytes)", sizes.dataPhysicalSize, sizes.dataLogicalSize]];
-	[resourceSizeField setStringValue:[NSString stringWithFormat:@"%llu on disk (%llu bytes)", sizes.resourcePhysicalSize, sizes.resourceLogicalSize]];
+	[totalSizeField setHidden:YES];
+	[sizeProgressBar setIndeterminate:YES];
+	[sizeProgressBar setUsesThreadedAnimation:YES];
+	[sizeProgressBar startAnimation:self];
+	[sizeProgressBar setHidden:NO];
+	[NSThread detachNewThreadSelector:@selector(computeSizes) toTarget:self withObject:nil];
+}
+
+- (void) updateSizes {
+	[sizeProgressBar stopAnimation:self];
+	[sizeProgressBar setHidden:YES];
+	[totalSizeField setHidden:NO];
+	
+	NSString * format = @"%@ on disk (%@)%@";
+	
+	BIByteFormatter * formatter = [[BIByteFormatter alloc] init];
+	NSString * physical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.physicalSize]];
+	NSString * dataPhysical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.dataPhysicalSize]];
+	NSString * resourcePhysical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.resourcePhysicalSize]];
+	
+	[formatter setConvertsToBestUnit:NO];
+	NSString * logical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.logicalSize]];
+	NSString * dataLogical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.dataLogicalSize]];
+	NSString * resourceLogical = [formatter stringForObjectValue:[NSNumber numberWithUnsignedLongLong:itemSize.resourceLogicalSize]];
+	
+	NSString * fileCount = [NSString stringWithFormat:@" for %llu item%@", itemSize.fileCount, (itemSize.fileCount == 1 ? @"" : @"s")];
+	[totalSizeField setStringValue:[NSString stringWithFormat:format, physical, logical, fileCount]];
+	[dataSizeField setStringValue:[NSString stringWithFormat:format, dataPhysical, dataLogical, @""]];
+	[resourceSizeField setStringValue:[NSString stringWithFormat:format, resourcePhysical, resourceLogical, @""]];
+	
+	[formatter release];
 }
 
 - (void) reloadVersion {
@@ -93,6 +137,15 @@
 	[[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:[self path]];
 	[attributes release];
 	[self reloadDates];
+}
+
+- (IBAction) changedExtensionHiddenFlag:(id)sender {
+	NSMutableDictionary * attributes = [[[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil] mutableCopy];
+	NSNumber * hidden = [NSNumber numberWithInt:[extensionHiddenButton state]];
+	[attributes setObject:hidden forKey:NSFileExtensionHidden];
+	[[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:[self path]];
+	[attributes release];
+	[self reloadExtensionAndLocked];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "PermissionsTabViewItem.h"
 #import "NSFileManager+BetterInfo.h"
+#import "BetterInfoAppDelegate.h"
 
 #define OWNER_RD 1<<8
 #define OWNER_WR 1<<7
@@ -24,6 +25,7 @@
 @interface PermissionsTabViewItem ()
 
 - (void) reloadPermissions;
+- (void) reloadOwnerAndGroups;
 
 @end
 
@@ -34,6 +36,7 @@
 @synthesize ownerReadButton, ownerWriteButton, ownerExecuteButton;
 @synthesize groupReadButton, groupWriteButton, groupExecuteButton;
 @synthesize worldReadButton, worldWriteButton, worldExecuteButton;
+@synthesize usersPopup, groupsPopup;
 
 - (id) initWithPath:(NSString *)itemPath {
 	if (self = [super initWithIdentifier:@"perms"]) {
@@ -48,6 +51,7 @@
 		[self setView:[self permissionsView]];
 		
 		[self reloadPermissions];
+		[self reloadOwnerAndGroups];
 	}
 	return self;
 }
@@ -70,27 +74,46 @@
 	[worldExecuteButton setState:(permissions & WORLD_EX ? NSOnState : NSOffState)];
 }
 
+- (void) reloadOwnerAndGroups {
+	NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil];
+	BetterInfoAppDelegate * appD = (BetterInfoAppDelegate *)[NSApp delegate];
+	[usersPopup removeAllItems];
+	[usersPopup addItemsWithTitles:[appD users]];
+	[usersPopup selectItemWithTitle:[attributes objectForKey:NSFileOwnerAccountName]];
+	
+	[groupsPopup removeAllItems];
+	[groupsPopup addItemsWithTitles:[appD groups]];
+	[groupsPopup selectItemWithTitle:[attributes objectForKey:NSFileGroupOwnerAccountName]];
+}
+
 - (IBAction) permissionsChanged:(id)sender {
 	int newPermissions = 0;
-	if ([ownerReadButton state] == NSOnState) { newPermissions |= OWNER_RD; }
-	if ([ownerWriteButton state] == NSOnState) { newPermissions |= OWNER_WR; }
-	if ([ownerExecuteButton state] == NSOnState) { newPermissions |= OWNER_EX; }
+	newPermissions |= ([ownerReadButton state] ? OWNER_RD : 0);
+	newPermissions |= ([ownerWriteButton state] ? OWNER_WR : 0);
+	newPermissions |= ([ownerExecuteButton state] ? OWNER_EX : 0);
 	
-	if ([groupReadButton state] == NSOnState) { newPermissions |= GROUP_RD; }
-	if ([groupWriteButton state] == NSOnState) { newPermissions |= GROUP_WR; }
-	if ([groupExecuteButton state] == NSOnState) { newPermissions |= GROUP_EX; }
+	newPermissions |= ([groupReadButton state] ? GROUP_RD : 0);
+	newPermissions |= ([groupWriteButton state] ? GROUP_WR : 0);
+	newPermissions |= ([groupExecuteButton state] ? GROUP_EX : 0);
 	
-	if ([worldReadButton state] == NSOnState) { newPermissions |= WORLD_RD; }
-	if ([worldWriteButton state] == NSOnState) { newPermissions |= WORLD_WR; }
-	if ([worldExecuteButton state] == NSOnState) { newPermissions |= WORLD_EX; }
+	newPermissions |= ([worldReadButton state] ? WORLD_RD : 0);
+	newPermissions |= ([worldWriteButton state] ? WORLD_WR : 0);
+	newPermissions |= ([worldExecuteButton state] ? WORLD_EX : 0);
 	
-	NSLog(@"New permissions: %o", newPermissions);
 	NSMutableDictionary * attributes = [[[NSFileManager defaultManager] attributesOfItemAtPath:[self path] error:nil] mutableCopy];
 	[attributes setObject:[NSNumber numberWithInt:newPermissions] forKey:NSFilePosixPermissions];
 	[[NSFileManager defaultManager] setAttributes:attributes ofItemAtPath:[self path]];
 	[attributes release];
 	
 	[self reloadPermissions];
+}
+
+- (IBAction) ownerChanged:(id)sender {
+	
+}
+
+- (IBAction) groupChanged:(id)sender {
+	
 }
 
 @end

@@ -23,6 +23,8 @@
 		555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 555986D6103C93AE003939FA /* NSString+FSRef.m */; };
 		555987BC103CADA4003939FA /* PermissionsTabViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 555987BB103CADA4003939FA /* PermissionsTabViewItem.m */; };
 		555987BF103CAE95003939FA /* PermissionsTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555987BE103CAE95003939FA /* PermissionsTabView.xib */; };
+		556A6C62103D9D7D0070AA2B /* NSTask+BetterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A6C61103D9D7D0070AA2B /* NSTask+BetterInfo.m */; };
+		556A6C67103DA24C0070AA2B /* BIByteFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A6C66103DA24C0070AA2B /* BIByteFormatter.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -62,6 +64,10 @@
 		555987BA103CADA4003939FA /* PermissionsTabViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionsTabViewItem.h; sourceTree = "<group>"; };
 		555987BB103CADA4003939FA /* PermissionsTabViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionsTabViewItem.m; sourceTree = "<group>"; };
 		555987BE103CAE95003939FA /* PermissionsTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsTabView.xib; sourceTree = "<group>"; };
+		556A6C60103D9D7D0070AA2B /* NSTask+BetterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+BetterInfo.h"; sourceTree = "<group>"; };
+		556A6C61103D9D7D0070AA2B /* NSTask+BetterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+BetterInfo.m"; sourceTree = "<group>"; };
+		556A6C65103DA24C0070AA2B /* BIByteFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIByteFormatter.h; sourceTree = "<group>"; };
+		556A6C66103DA24C0070AA2B /* BIByteFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIByteFormatter.m; sourceTree = "<group>"; };
 		55B0D88E103BB359003BAD18 /* Finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Finder.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BetterInfo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BetterInfo-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BetterInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +104,10 @@
 				555986D6103C93AE003939FA /* NSString+FSRef.m */,
 				555986B6103C8699003939FA /* NSFileManager+BetterInfo.h */,
 				555986B7103C8699003939FA /* NSFileManager+BetterInfo.m */,
+				556A6C60103D9D7D0070AA2B /* NSTask+BetterInfo.h */,
+				556A6C61103D9D7D0070AA2B /* NSTask+BetterInfo.m */,
+				556A6C65103DA24C0070AA2B /* BIByteFormatter.h */,
+				556A6C66103DA24C0070AA2B /* BIByteFormatter.m */,
 				555986DD103C94C7003939FA /* Common.h */,
 				55569CC2103B995400A27A64 /* PTHotKey */,
 			);
@@ -257,6 +267,8 @@
 				555986B8103C8699003939FA /* NSFileManager+BetterInfo.m in Sources */,
 				555986D7103C93AE003939FA /* NSString+FSRef.m in Sources */,
 				555987BC103CADA4003939FA /* PermissionsTabViewItem.m in Sources */,
+				556A6C62103D9D7D0070AA2B /* NSTask+BetterInfo.m in Sources */,
+				556A6C67103DA24C0070AA2B /* BIByteFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

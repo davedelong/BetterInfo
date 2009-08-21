@@ -12,6 +12,8 @@
 #import "BetterInfoAppDelegate.h"
 #import "BetterInfoDocument.h"
 #import "Finder.h"
+#import "NSString+FSRef.h"
+#import "NSTask+BetterInfo.h"
 
 #import "PTHotKeyCenter.h"
 #import "PTHotKey.h"
@@ -30,7 +32,7 @@
 	[globalHotkey setAction:@selector(hotKeyPressed:)];
 	[combo release];
 	
-	NSLog(@"Registered? %d", [[PTHotKeyCenter sharedCenter] registerHotKey:globalHotkey]);
+	[[PTHotKeyCenter sharedCenter] registerHotKey:globalHotkey];
 }
 
 - (void) hotKeyPressed:(PTKeyCombo *)hotKey {
@@ -53,12 +55,34 @@
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification {
 	[[PTHotKeyCenter sharedCenter] unregisterHotKey:globalHotkey];
+	[users release], users = nil;
+	[groups release], groups = nil;
 	
 	[globalHotkey release];
 }
 
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
 	return NO;
+}
+
+- (NSArray *) users {
+	//dscl . list /users
+	if (!users) {
+		NSString * usersString = [NSTask stringByLaunchingTask:@"/usr/bin/dscl" arguments:[NSArray arrayWithObjects:@".", @"list", @"/users", nil]];
+		usersString = [usersString trimmedString];
+		users = [[usersString componentsSeparatedByString:@"\n"] retain];
+	}
+	return users;
+}
+
+- (NSArray *) groups {
+	//dscl . list /groups
+	if (!groups) {
+		NSString * usersString = [NSTask stringByLaunchingTask:@"/usr/bin/dscl" arguments:[NSArray arrayWithObjects:@".", @"list", @"/groups", nil]];
+		usersString = [usersString trimmedString];
+		groups = [[usersString componentsSeparatedByString:@"\n"] retain];
+	}
+	return groups;
 }
 
 @end
